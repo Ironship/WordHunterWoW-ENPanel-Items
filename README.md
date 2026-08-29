@@ -1,20 +1,24 @@
 # QuestWordHunter — English Item Names
 
-You are playing WoW in German, someone links an item in chat, and you have no idea what the guides call it. This adds the English name to the item tooltip, underneath the one the game already shows you.
+Someone links an item in chat, you are playing in German, and you have no idea what the guides call it.
 
-168,833 items, straight from Blizzard's Game Data API.
+This adds the English name to the item tooltip, underneath the one the game already shows you. **168,833 items.**
 
-It is a separate addon for one reason: size. Item names are around ten megabytes, roughly ninety percent of everything the English name data weighs. Spell and creature names are small enough that the [English Quest Panel](https://github.com/Ironship/WordHunterWoW-ENPanel) just ships them; these are not, so you decide whether you want them.
+## Install
 
-## What you need
+Unzip into `_retail_\Interface\AddOns\` and restart the game.
 
-- Retail 12.1 (`Interface 120100`)
-- [QuestWordHunter - English Quest Panel](https://github.com/Ironship/WordHunterWoW-ENPanel) — this pack does nothing without it
-- A client set to something other than English. On an English client the addon stays quiet, since there would be nothing to add.
+You need [QuestWordHunter - English Quest Panel](https://github.com/Ironship/WordHunterWoW-ENPanel) as well — this pack does nothing on its own.
 
-## What it does not cover
+Playing in English already? The addon stays quiet.
 
-Blizzard's API publishes 168,833 items, which is most but not all of what exists in the game files. An item it does not publish simply gets no extra line — the tooltip is left exactly as it was.
+## Why is this a separate download
+
+Item names are big — about ten megabytes, more than everything else in the panel put together. Spell and creature names come with the panel itself; these you take only if you want them.
+
+A handful of items are not covered. Their tooltip is simply left alone.
+
+Retail 12.1. All rights reserved.
 
 ## Rebuild (maintainers)
 
@@ -26,5 +30,3 @@ python Tools/build_names_lua.py --kind item --out ../WordHunterWoW-ENPanel-Items
 ```
 
 Commit the generated `Data/NamesItem_*.lua`.
-
-All rights reserved.
