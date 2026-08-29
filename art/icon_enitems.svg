@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1024" height="1024" viewBox="0 0 1024 1024">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff0a0"/><stop offset=".3" stop-color="#e7a62d"/><stop offset=".7" stop-color="#7b3e0b"/><stop offset="1" stop-color="#f6c553"/></linearGradient>
+    <linearGradient id="wood" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#d98b26"/><stop offset="1" stop-color="#71350e"/></linearGradient>
+    <filter id="shadow" x="-30%" y="-30%" width="170%" height="180%"><feDropShadow dx="0" dy="18" stdDeviation="16" flood-color="#02080d" flood-opacity=".85"/></filter>
+    <clipPath id="shield"><path d="M716 661Q820 616 924 661v143q0 105-104 163-104-58-104-163z"/></clipPath>
+  </defs>
+  <rect width="1024" height="1024" fill="#061724"/>
+  <image href="../../WordHunterWoW/art/icon_wordhunter.png" width="1024" height="1024"/>
+  <g filter="url(#shadow)">
+    <path d="M706 653Q820 601 934 653v151q0 116-114 178-114-62-114-178z" fill="#071d2d" stroke="#071018" stroke-width="28"/>
+    <path d="M716 661Q820 616 924 661v143q0 105-104 163-104-58-104-163z" fill="#123f4d" stroke="url(#gold)" stroke-width="13"/>
+    <g clip-path="url(#shield)">
+      <rect x="716" y="655" width="208" height="78" fill="#183e7a"/>
+      <path d="M716 655l208 78m0-78l-208 78" stroke="#fff" stroke-width="20"/>
+      <path d="M716 655l208 78m0-78l-208 78" stroke="#c62832" stroke-width="9"/>
+      <path d="M820 651v86M712 694h216" stroke="#fff" stroke-width="31"/>
+      <path d="M820 651v86M712 694h216" stroke="#d32635" stroke-width="16"/>
+    </g>
+    <path d="M752 791q68-54 136 0v90H752z" fill="url(#wood)" stroke="#281407" stroke-width="13"/>
+    <path d="M752 791q68-54 136 0v20H752z" fill="#eab446" stroke="url(#gold)" stroke-width="10"/>
+    <path d="M742 812h156v33H742z" fill="url(#gold)" stroke="#321a08" stroke-width="9"/>
+    <path d="M806 806h28v67h-28z" fill="#ffe47a" stroke="#4d290b" stroke-width="8"/>
+    <circle cx="820" cy="836" r="8" fill="#4b2709"/>
+  </g>
+</svg>
