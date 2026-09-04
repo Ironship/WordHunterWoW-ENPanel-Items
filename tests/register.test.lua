@@ -15,15 +15,29 @@ CreateFrame = function()
   return f
 end
 
--- every Lua file the toc loads, in the order the game loads them
-local files = {}
-for line in io.lines("WordHunterWoW-ENPanel-Items.toc") do
-  line = line:gsub("%s+$", "")
-  if line:match("^Data/.+%.lua$") then files[#files + 1] = line end
+-- Every Lua file a toc loads, in the order the game loads them. There is one
+-- toc per game and they list different data, so both are checked: a manifest
+-- pointing at a file that is not there fails only on the game that reads it.
+local function data_files(toc)
+  local files = {}
+  for line in io.lines(toc) do
+    line = line:gsub("%s+$", "")
+    if line:match("^Data/.+%.lua$") then files[#files + 1] = line end
+  end
+  assert(#files > 0, toc .. " lists no data files")
+  return files
 end
-assert(#files > 0, "the toc lists no data files")
-for _, f in ipairs(files) do dofile(f) end
-print("loaded " .. #files .. " data files from the toc")
+
+local files
+for _, toc in ipairs({ "WordHunterWoW-ENPanel-Items_Mainline.toc",
+                       "WordHunterWoW-ENPanel-Items_Vanilla.toc" }) do
+  files = data_files(toc)
+  for _, f in ipairs(files) do
+    assert(io.open(f), toc .. " lists " .. f .. ", which is not in the package")
+    dofile(f)
+  end
+  print("loaded " .. #files .. " data files from " .. toc)
+end
 
 -- Missing panel: the addon must not error. It is a hard dependency, so this
 -- should not happen, but failing loudly here would break the player's tooltips

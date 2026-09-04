@@ -1,0 +1,18 @@
+## Interface: 120100
+## Title: QuestWordHunter - English Item Names
+## Notes: Adds English item names and what they do to tooltips. Requires the English Quest Panel.
+## IconTexture: Interface\AddOns\WordHunterWoW-ENPanel-Items\icon
+## Author: Ironship
+## Version: 1.1.1
+## Dependencies: WordHunterWoW-ENPanel
+
+Data/DescItem_000.lua
+Data/DescItem_001.lua
+Data/NamesItem_000.lua
+Data/NamesItem_001.lua
+Data/NamesItem_002.lua
+Data/NamesItem_003.lua
+Data/NamesItem_004.lua
+
+
+Bootstrap.lua
