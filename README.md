@@ -2,7 +2,7 @@
 
 Someone links an item in chat, you are playing in German, and you have no idea what the guides call it.
 
-This adds the English name to the item tooltip, underneath the one the game already shows you. **168,833 items.**
+This adds the English name, and where Blizzard publishes one the English description, to the item tooltip. **168,833 names** and **34,022 descriptions** on Retail; Classic has its own smaller set.
 
 ## Install
 
@@ -26,7 +26,11 @@ From the English Quest Panel's `Tools`:
 
 ```
 python Tools/fetch_names.py --kind item
+python Tools/fetch_descriptions.py --kind item
 python Tools/build_names_lua.py --kind item --out ../WordHunterWoW-ENPanel-Items/Data --chunk 40000
+python Tools/build_names_lua.py --kind item --desc --out ../WordHunterWoW-ENPanel-Items/Data --chunk 40000
+python Tools/build_names_lua.py --kind item --product classic --out ../WordHunterWoW-ENPanel-Items/Data/Classic --chunk 40000
+python Tools/build_names_lua.py --kind item --desc --product classic --out ../WordHunterWoW-ENPanel-Items/Data/Classic --chunk 40000
 ```
 
-Commit the generated `Data/NamesItem_*.lua`.
+Commit the generated `Data/NamesItem_*.lua` and `Data/DescItem_*.lua`.

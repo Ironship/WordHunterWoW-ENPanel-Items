@@ -13,3 +13,5 @@ ignore:
   - art
   - curseforge
   - tests
+  - Tools
+  - Data/cache

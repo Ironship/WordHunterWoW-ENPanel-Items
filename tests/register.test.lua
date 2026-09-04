@@ -28,16 +28,34 @@ local function data_files(toc)
   return files
 end
 
-local files
-for _, toc in ipairs({ "WordHunterWoW-ENPanel-Items_Mainline.toc",
-                       "WordHunterWoW-ENPanel-Items_Vanilla.toc" }) do
-  files = data_files(toc)
+local function count(t)
+  local n = 0
+  for _ in pairs(t or {}) do n = n + 1 end
+  return n
+end
+
+local function load_toc(toc)
+  WordHunterWoW_ENNames_Item = nil
+  WordHunterWoW_ENDesc_Item = nil
+  local files = data_files(toc)
   for _, f in ipairs(files) do
     assert(io.open(f), toc .. " lists " .. f .. ", which is not in the package")
     dofile(f)
   end
   print("loaded " .. #files .. " data files from " .. toc)
+  return files
 end
+
+load_toc("WordHunterWoW-ENPanel-Items_Vanilla.toc")
+local classicNames = count(WordHunterWoW_ENNames_Item)
+local classicDescs = count(WordHunterWoW_ENDesc_Item)
+assert(classicNames > 15000 and classicNames < 40000,
+       "Classic item names should be the Classic set, got " .. classicNames)
+assert(classicDescs > 5000 and classicDescs < 20000,
+       "Classic item descriptions should be the Classic set, got " .. classicDescs)
+print(string.format("  Classic payload: %d names, %d descriptions", classicNames, classicDescs))
+
+load_toc("WordHunterWoW-ENPanel-Items_Mainline.toc")
 
 -- Missing panel: the addon must not error. It is a hard dependency, so this
 -- should not happen, but failing loudly here would break the player's tooltips
@@ -57,12 +75,6 @@ assert(loadfile("Bootstrap.lua"))("WordHunterWoW-ENPanel-Items")
 
 assert(captured, "the addon never registered anything with the panel")
 assert(captured.kind == "item", "registered as " .. tostring(captured.kind))
-
-local function count(t)
-  local n = 0
-  for _ in pairs(t or {}) do n = n + 1 end
-  return n
-end
 
 local names = count(captured.entries)
 assert(names > 160000, "expected the full item name set, got " .. names)
