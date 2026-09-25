@@ -1,4 +1,4 @@
-## Interface: 120100
+## Interface: 120100, 120105
 ## Title: QuestWordHunter - English Item Names
 ## Notes: Adds English item names and what they do to tooltips. Requires the English Quest Panel.
 ## IconTexture: Interface\AddOns\WordHunterWoW-ENPanel-Items\icon
