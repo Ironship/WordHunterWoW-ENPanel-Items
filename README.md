@@ -18,7 +18,7 @@ Item names are big — about ten megabytes, more than everything else in the pan
 
 A handful of items are not covered. Their tooltip is simply left alone.
 
-Retail 12.1. All rights reserved.
+Retail 12.1. MIT licence.
 
 ## Rebuild (maintainers)
 
