@@ -18,6 +18,8 @@ Item names are big — about ten megabytes, more than everything else in the pan
 
 A handful of items are not covered. Their tooltip is simply left alone.
 
+An item's figures belong to the item, so "Restores 1,250 health" is shown as written. Where Blizzard's API could not work a figure out and answered 0, it is shown as **X** instead of a zero that would mislead.
+
 Retail 12.1. MIT licence.
 
 ## Rebuild (maintainers)
