@@ -6,7 +6,7 @@ This adds the English name, and where Blizzard publishes one the English descrip
 
 ## Install
 
-Unzip into `_retail_\Interface\AddOns\` and restart the game.
+Unzip into `_retail_\Interface\AddOns\` (or `_forever_\Interface\AddOns\` for WoW: Forever, which uses the smaller Classic set) and restart the game.
 
 You need [QuestWordHunter - English Quest Panel](https://github.com/Ironship/WordHunterWoW-ENPanel) as well — this pack does nothing on its own.
 
@@ -20,7 +20,7 @@ A handful of items are not covered. Their tooltip is simply left alone.
 
 An item's figures belong to the item, so "Restores 1,250 health" is shown as written. Where Blizzard's API could not work a figure out and answered 0, it is shown as **X** instead of a zero that would mislead.
 
-Retail 12.1. MIT licence.
+Retail 12.1, WoW: Forever and Classic Era. MIT licence.
 
 ## Rebuild (maintainers)
 
