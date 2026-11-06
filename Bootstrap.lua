@@ -22,6 +22,7 @@ events:SetScript("OnEvent", function(_, _, loaded)
   if loaded == addonName then register() end
 end)
 
--- The panel is a required dependency, so its registry already exists. Register
+-- The panel is an optional dependency (it loads first when installed, and the game does not
+-- block this addon when it is missing or flagged out of date). Register
 -- immediately as well as on ADDON_LOADED to survive load-order edge cases.
 register()
