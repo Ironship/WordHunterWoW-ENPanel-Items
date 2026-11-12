@@ -2,11 +2,11 @@
 
 Someone links an item in chat, you are playing in German, and you have no idea what the guides call it.
 
-This adds the English name, and where Blizzard publishes one the English description, to the item tooltip. **168,833 names** and **34,022 descriptions** on Retail; Classic has its own smaller set.
+This adds the English name, and where Blizzard publishes one the English description, to the item tooltip. **168,833 names** and **34,022 descriptions** on Retail; Classic has its own smaller set, and WoW: Forever has **21,973 names**, the items of its own included.
 
 ## Install
 
-Unzip into `_retail_\Interface\AddOns\` (or `_forever_\Interface\AddOns\` for WoW: Forever, which uses the smaller Classic set) and restart the game.
+Unzip into `_retail_\Interface\AddOns\` (or `_forever_\Interface\AddOns\` for WoW: Forever, which has its own, smaller set) and restart the game.
 
 You need [QuestWordHunter - English Quest Panel](https://github.com/Ironship/WordHunterWoW-ENPanel) as well — this pack does nothing on its own.
 
@@ -22,6 +22,8 @@ An item's figures belong to the item, so "Restores 1,250 health" is shown as wri
 
 Retail 12.1, WoW: Forever and Classic Era. MIT licence.
 
+On Forever the names are Blizzard's Classic names plus what the Forever server sent for items its client files do not name yet, from the data of [Efficient Games](https://efficient.games), licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The data was changed: the names were taken out of Efficient Games' files and laid over the Classic set.
+
 ## Rebuild (maintainers)
 
 From the English Quest Panel's `Tools`:
@@ -36,3 +38,11 @@ python Tools/build_names_lua.py --kind item --desc --product classic --out ../Wo
 ```
 
 Commit the generated `Data/NamesItem_*.lua` and `Data/DescItem_*.lua`.
+
+WoW: Forever's names are made from the Classic set and Efficient Games' files:
+
+```
+python Tools/build_forever_items.py --fetch
+```
+
+Commit the generated `Data/Forever/NamesItem_000.lua`. The files are fetched at the revision named in the script; to take newer names, change it.
